@@ -2,7 +2,7 @@
 name: GitHubActions_LogCheckFlow
 on: push
 jobs:
-  Log Check:
+  LogCheck:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello world!!"
