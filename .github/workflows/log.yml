@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript-typescript"] # React（JSX/TSX）も含む場合は javascript と typescript 両方指定した方がより安全
+        language: ["javascript", "typescript"] # React（JSX/TSX）も含む場合は javascript と typescript 両方指定した方がより安全
 
     steps:
       - name: CheckoutRepository
@@ -31,9 +31,9 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+          config-file: ./.github/codeql/codeql-config.yml
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
         with:
           category: "/language:${{matrix.language}}"
-          build-mode: ${{ matrix.build-mode }}
