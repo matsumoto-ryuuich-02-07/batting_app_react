@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript", "typescript"] # React（JSX/TSX）も含む場合は javascript と typescript 両方指定した方がより安全
+        language: javascript-typescript # React（JSX/TSX）も含む場合は javascript と typescript 両方指定した方がより安全
 
     steps:
       - name: CheckoutRepository
