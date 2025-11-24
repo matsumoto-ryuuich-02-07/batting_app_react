@@ -1,0 +1,7 @@
+name: GitHub Actions Log Check Flow
+on: push
+jobs:
+  Log Check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world!!"
