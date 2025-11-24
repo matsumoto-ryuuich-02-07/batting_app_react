@@ -1,4 +1,5 @@
-name: GitHub Actions Log Check Flow
+# ID に使用できるのは英数字、「_」、「-」
+name: GitHubActions_LogCheckFlow
 on: push
 jobs:
   Log Check:
