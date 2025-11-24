@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: echo "job_start!!"
 
-  # コード解析
+  # コード解析(CodeQLはLint の設定は含まれていない)
   Analyze:
     name: Analyze
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["typescript"]
+        language: ["javascript-typescript"] # React（JSX/TSX）も含む場合は javascript と typescript 両方指定した方がより安全
 
     steps:
       - name: CheckoutRepository
@@ -36,3 +36,4 @@ jobs:
         uses: github/codeql-action/analyze@v4
         with:
           category: "/language:${{matrix.language}}"
+          build-mode: ${{ matrix.build-mode }}
